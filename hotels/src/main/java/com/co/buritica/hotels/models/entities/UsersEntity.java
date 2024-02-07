@@ -21,4 +21,9 @@ public class UsersEntity {
     private String second_surname;
     @Column(name = "direccion")
     private String adreess;
+    @Column(name = "telefono")
+    private String phone;
+    @Column(name = "correo")
+    private String email;
+    
 }
