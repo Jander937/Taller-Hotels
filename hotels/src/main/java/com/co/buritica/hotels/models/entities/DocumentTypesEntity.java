@@ -10,7 +10,7 @@ public class DocumentTypesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+    @Column(name = "id",nullable = false)
     private Integer id;
     @Column(name = "nombre")
     private String name;
