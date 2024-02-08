@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 public class HotelDTO {
 
+
     private String neighborhood;
 
     private String address;
