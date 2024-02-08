@@ -1,7 +1,6 @@
 package com.co.buritica.hotels.models.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
