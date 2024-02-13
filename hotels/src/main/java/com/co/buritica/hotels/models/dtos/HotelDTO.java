@@ -1,12 +1,12 @@
 package com.co.buritica.hotels.models.dtos;
 
-import com.co.buritica.hotels.models.entities.CitiesEntity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class HotelDTO {
 
 

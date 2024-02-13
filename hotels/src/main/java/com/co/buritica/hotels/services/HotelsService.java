@@ -30,7 +30,7 @@ public class HotelsService {
 
         hotelsRepository.save(hotelsEntity);
 
-        return false;
+        return true;
     }
 
     //rf3

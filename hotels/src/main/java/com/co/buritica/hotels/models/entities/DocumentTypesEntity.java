@@ -1,11 +1,12 @@
 package com.co.buritica.hotels.models.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "tbl_tipos_documento")
 public class DocumentTypesEntity {

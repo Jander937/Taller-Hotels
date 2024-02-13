@@ -2,15 +2,18 @@ package com.co.buritica.hotels.models.dtos;
 
 import com.co.buritica.hotels.models.entities.SuitesEntity;
 import com.co.buritica.hotels.models.entities.UsersEntity;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.sql.Date;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Builder
 public class ReservationDTO {
 
+    private Integer id;
 
     private Date admissionDate;
 

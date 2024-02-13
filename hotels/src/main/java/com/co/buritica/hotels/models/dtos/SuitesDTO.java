@@ -1,10 +1,11 @@
 package com.co.buritica.hotels.models.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class SuitesDTO {
 
 
