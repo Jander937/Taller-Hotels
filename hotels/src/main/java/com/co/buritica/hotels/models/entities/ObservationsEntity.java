@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -13,18 +14,18 @@ import java.sql.Date;
 @Table(name = "tbl_observaciones")
 public class ObservationsEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
     private Integer id;
 
-    @Column(name = "tipo")
+    @Column(name = "tipo", columnDefinition = "TINYINT")
     private Integer type;
 
-    @Column(name = "observacion")
+    @Column(name = "observación")
     private String observation;
 
     @Column(name = "fecha")
-    private Date date;
+    private Timestamp date;
 
     @ManyToOne
     @JoinColumn(name = "tbl_reservas_id")

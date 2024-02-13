@@ -12,7 +12,7 @@ import lombok.*;
 public class UsersEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
     private Integer id;
 
@@ -40,7 +40,7 @@ public class UsersEntity {
     @Column(name = "clave")
     private String password;
 
-    @Column(name = "estado")
+    @Column(name = "estado", columnDefinition = "TINYINT")
     private Integer status;
 
     @ManyToOne

@@ -5,16 +5,14 @@ import lombok.*;
 
 import java.sql.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
 @Entity
 @Table(name = "tbl_reservas")
 public class ReservationsEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
     private Integer id;
 
@@ -27,7 +25,7 @@ public class ReservationsEntity {
     @Column(name = "estado")
     private String status;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "tbl_habitaciones_id")
     private SuitesEntity suitesEntity;
 

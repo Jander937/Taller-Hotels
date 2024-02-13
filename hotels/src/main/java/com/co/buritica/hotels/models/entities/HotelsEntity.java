@@ -12,8 +12,8 @@ import lombok.*;
 @Table(name = "tbl_sedes_hotel")
 public class HotelsEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     @Column(name = "barrio")
@@ -25,7 +25,8 @@ public class HotelsEntity {
     @Column(name = "telefonos")
     private String phones;
 
-    @Column(name = "tbl_ciudades_codigo")
+    @OneToOne
+    @JoinColumn (name = "tbl_ciudades_codigo")
     private CitiesEntity citiesEntity;
 
 }

@@ -19,6 +19,8 @@ public class HotelsService {
 
         HotelsEntity hotelsEntity = new HotelsEntity();
 
+        hotelsEntity.setId(((int) hotelsRepository.count()) +1);
+
         hotelsEntity.setAddress(hotelData.getAddress());
         hotelsEntity.setPhones(hotelData.getPhones());
         hotelsEntity.setNeighborhood(hotelData.getNeighborhood());
@@ -28,9 +30,11 @@ public class HotelsService {
         citiesEntity.setId(hotelData.getCityId());
         hotelsEntity.setCitiesEntity(citiesEntity);
 
-        hotelsRepository.save(hotelsEntity);
 
-        return true;
+
+        HotelsEntity result = hotelsRepository.save(hotelsEntity);
+
+        return (result.getCitiesEntity().getName() != null);
     }
 
     //rf3

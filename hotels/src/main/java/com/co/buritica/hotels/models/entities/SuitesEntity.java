@@ -12,7 +12,7 @@ import lombok.*;
 public class SuitesEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
     private Integer id;
 
@@ -35,6 +35,7 @@ public class SuitesEntity {
     @JoinColumn(name = "tbl_sedes_hotel_id")
     private HotelsEntity hotelsEntity;
 
-    @JoinColumn(name = "tdl_tipos_habitaciones_id")
+    @ManyToOne
+    @JoinColumn(name = "tbl_tipos_habitaciones_id")
     private SuitesTypesEntity suitesTypesEntity;
 }

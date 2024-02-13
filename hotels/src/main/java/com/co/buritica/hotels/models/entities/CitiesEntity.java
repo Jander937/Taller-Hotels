@@ -12,7 +12,7 @@ import lombok.*;
 public class CitiesEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo", nullable = false)
     private Integer id;
 

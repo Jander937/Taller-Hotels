@@ -9,9 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 
-@ComponentScan(value = "src/main/java/com/co/buritica/hotels/*")
-@EnableJpaRepositories(value= "src/main/java/com/co/buritica/hotels/repositories")
-@EntityScan ("src/main/java/com/co/buritica/hotels/models/entities")
+
 @SpringBootApplication
 public class HotelsApplication {
 
