@@ -19,12 +19,6 @@ public class SuitesService {
 
         SuitesEntity suitesEntity = new SuitesEntity();
 
-        suitesEntity.setNumber(suitesData.getNumber());
-        suitesEntity.setPrivateBathroom(suitesData.getPrivateBathroom());
-        suitesEntity.setPhone(suitesData.getPhone());
-        suitesEntity.setHeating(suitesData.getHeating());
-        suitesEntity.setStatus(suitesData.getStatus());
-
         HotelsEntity hotelsEntity = new HotelsEntity();
 
         hotelsEntity.setId(suitesData.getHotelId());
@@ -35,9 +29,17 @@ public class SuitesService {
         suitesTypesEntity.setId(suitesData.getSuitesTypesId());
         suitesEntity.setSuitesTypesEntity(suitesTypesEntity);
 
-        suitesRepository.save(suitesEntity);
+        suitesEntity.setId(((int) suitesRepository.count()) +1);
+        suitesEntity.setNumber(suitesData.getNumber());
+        suitesEntity.setPrivateBathroom(suitesData.getPrivateBathroom());
+        suitesEntity.setPhone(suitesData.getPhone());
+        suitesEntity.setHeating(suitesData.getHeating());
+        suitesEntity.setStatus(suitesData.getStatus());
 
-        return false;
+
+        SuitesEntity result = suitesRepository.save(suitesEntity);
+
+        return (result != null);
     }
 
     //rf5
