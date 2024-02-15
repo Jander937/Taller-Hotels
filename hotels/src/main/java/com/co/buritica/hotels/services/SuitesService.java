@@ -8,6 +8,8 @@ import com.co.buritica.hotels.repositories.SuitesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SuitesService {
 
@@ -44,10 +46,11 @@ public class SuitesService {
 
     //rf5
     public Boolean delete (Integer id){
-
+        // Elimina el hotel con el ID proporcionado
         suitesRepository.deleteById(id);
 
-        //TODO: falta validar si la habitacion fue eliminada
-        return true;
+        // Verifica si el hotel fue eliminado correctamente
+        Optional<SuitesEntity> deletedSuites = suitesRepository.findById(id);
+        return deletedSuites.isEmpty();
     }
 }
