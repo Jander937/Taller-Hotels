@@ -7,6 +7,8 @@ import com.co.buritica.hotels.repositories.HotelsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class HotelsService {
 
@@ -39,10 +41,11 @@ public class HotelsService {
 
     //rf3
     public Boolean delete(Integer id){
-
+        // Elimina el hotel con el ID proporcionado
         hotelsRepository.deleteById(id);
 
-        //TODO:falta validar si el hotel fue eliminado
-        return true;
+        // Verifica si el hotel fue eliminado correctamente
+        Optional<HotelsEntity> deletedHotel = hotelsRepository.findById(id);
+        return deletedHotel.isEmpty();
     }
 }

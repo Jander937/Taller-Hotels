@@ -32,10 +32,11 @@ public class HotelsController {
 
     }
 
-    @DeleteMapping
-    public Optional<EntityResponse<?>> delete(@PathVariable int id){
+    @DeleteMapping(value = "/hotels/11")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Optional<EntityResponse<?>> delete(){
 
-        Boolean result = hotelsService.delete(id);
+        Boolean result = hotelsService.delete(11);
 
         if(result){
             return Optional.empty();
