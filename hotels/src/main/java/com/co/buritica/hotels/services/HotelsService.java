@@ -41,11 +41,17 @@ public class HotelsService {
 
     //rf3
     public Boolean delete(Integer id){
-        // Elimina el hotel con el ID proporcionado
-        hotelsRepository.deleteById(id);
 
         // Verifica si el hotel fue eliminado correctamente
         Optional<HotelsEntity> deletedHotel = hotelsRepository.findById(id);
-        return deletedHotel.isEmpty();
+
+        if (deletedHotel.isEmpty())
+        return false;
+
+        // Elimina el hotel con el ID proporcionado
+        hotelsRepository.deleteById(id);
+
+
+        return true;
     }
 }

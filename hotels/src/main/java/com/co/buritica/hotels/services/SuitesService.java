@@ -8,6 +8,8 @@ import com.co.buritica.hotels.repositories.SuitesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class SuitesService {
 
@@ -26,10 +28,9 @@ public class SuitesService {
 
         SuitesTypesEntity suitesTypesEntity = new SuitesTypesEntity();
 
-        suitesTypesEntity.setId(suitesData.getSuitesTypesId());
-        suitesEntity.setSuitesTypesEntity(suitesTypesEntity);
+        suitesTypesEntity.setId(suitesData.getSuiteTypesId());
+        suitesEntity.setSuiteTypesEntity(suitesTypesEntity);
 
-        suitesEntity.setId(((int) suitesRepository.count()) +1);
         suitesEntity.setNumber(suitesData.getNumber());
         suitesEntity.setPrivateBathroom(suitesData.getPrivateBathroom());
         suitesEntity.setPhone(suitesData.getPhone());
@@ -44,10 +45,17 @@ public class SuitesService {
 
     //rf5
     public Boolean delete (Integer id){
+        // Verifica si el hotel fue eliminado correctamente
+        Optional<SuitesEntity> deleteSuites = suitesRepository.findById(id);
 
+        if(deleteSuites.isEmpty())
+            return false;
+
+        //TODO:Controlar la excepcion cuando no se puede eliminar la excepcion.
+
+        // Elimina el hotel con el ID proporcionado
         suitesRepository.deleteById(id);
 
-        //TODO: falta validar si la habitacion fue eliminada
         return true;
     }
 }

@@ -7,6 +7,7 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table(name = "tbl_reservas")
 public class ReservationsEntity {
@@ -17,10 +18,10 @@ public class ReservationsEntity {
     private Integer id;
 
     @Column(name = "fecha_ingreso")
-    private Date admissionDate;
+    private Date checkInDate;
 
     @Column(name = "fecha_salida")
-    private Date departureDate;
+    private Date checkOutDate;
 
     @Column(name = "estado")
     private String status;

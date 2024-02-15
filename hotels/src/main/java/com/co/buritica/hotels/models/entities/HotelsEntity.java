@@ -3,11 +3,8 @@ package com.co.buritica.hotels.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Builder
+@Getter
+@Setter
 @Entity
 @Table(name = "tbl_sedes_hotel")
 public class HotelsEntity {

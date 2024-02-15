@@ -3,10 +3,9 @@ package com.co.buritica.hotels.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "tbl_tipos_habitaciones")
 public class SuitesTypesEntity {

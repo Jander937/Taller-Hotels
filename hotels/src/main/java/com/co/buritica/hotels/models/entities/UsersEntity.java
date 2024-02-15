@@ -1,12 +1,13 @@
 package com.co.buritica.hotels.models.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "tbl_usuarios")
 public class UsersEntity {

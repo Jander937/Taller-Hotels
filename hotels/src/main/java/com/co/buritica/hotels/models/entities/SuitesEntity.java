@@ -3,16 +3,15 @@ package com.co.buritica.hotels.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "tbl_habitaciones")
 public class SuitesEntity {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -37,5 +36,5 @@ public class SuitesEntity {
 
     @ManyToOne
     @JoinColumn(name = "tbl_tipos_habitaciones_id")
-    private SuitesTypesEntity suitesTypesEntity;
+    private SuitesTypesEntity suiteTypesEntity;
 }

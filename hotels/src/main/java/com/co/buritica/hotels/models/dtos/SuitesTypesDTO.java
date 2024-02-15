@@ -1,13 +1,13 @@
 package com.co.buritica.hotels.models.dtos;
 
-import jakarta.persistence.Column;
-import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
 @ToString
-@Builder
 public class SuitesTypesDTO {
 
     private String name;

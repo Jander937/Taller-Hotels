@@ -3,13 +3,11 @@ package com.co.buritica.hotels.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "tbl_observaciones")
 public class ObservationsEntity {

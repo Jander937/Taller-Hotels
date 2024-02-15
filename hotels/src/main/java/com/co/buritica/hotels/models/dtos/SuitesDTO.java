@@ -1,11 +1,13 @@
 package com.co.buritica.hotels.models.dtos;
 
-import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class SuitesDTO {
 
 
@@ -21,6 +23,6 @@ public class SuitesDTO {
 
     private Integer hotelId;
 
-    private Integer suitesTypesId;
+    private Integer suiteTypesId;
 
 }

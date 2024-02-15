@@ -6,23 +6,21 @@ import lombok.*;
 
 import java.sql.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 @ToString
-@Builder
 public class ReservationDTO {
 
     private Integer id;
 
-    private Date admissionDate;
+    private Date checkInDate;
 
-    private Date departureDate;
+    private Date checkOutDate;
 
     private String status;
 
-    private SuitesEntity suitesEntity;
+    private SuitesDTO suite;
 
-    private UsersEntity usersEntity;
+    private UsersDTO user;
 
 }

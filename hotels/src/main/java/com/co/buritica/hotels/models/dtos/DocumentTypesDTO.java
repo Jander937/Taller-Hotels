@@ -1,14 +1,10 @@
 package com.co.buritica.hotels.models.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Getter
+@Setter
+@ToString
 public class DocumentTypesDTO {
 
     private Integer id;
