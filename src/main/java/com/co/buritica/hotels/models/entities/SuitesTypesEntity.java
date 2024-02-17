@@ -3,6 +3,8 @@ package com.co.buritica.hotels.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -20,4 +22,8 @@ public class SuitesTypesEntity {
 
     @Column(name = "descripcion")
     private String description;
+
+
+//    @OneToMany(mappedBy = "suiteType")
+//    private List<SuitesEntity> suitesEntities;
 }

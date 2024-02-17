@@ -5,6 +5,7 @@ import com.co.buritica.hotels.models.dtos.SuitesDTO;
 import com.co.buritica.hotels.models.dtos.UsersDTO;
 import com.co.buritica.hotels.models.entities.*;
 import com.co.buritica.hotels.repositories.ReservationsRepository;
+import com.co.buritica.hotels.repositories.SuitesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,13 @@ import java.util.List;
 @Service
 public class ReservationsService {
 
+    //rf2
+
     @Autowired
     private ReservationsRepository reservationsRepository;
+
+    @Autowired
+    private SuitesRepository suitesRepository;
 
     public List<ReservationDTO> getAll() {
 
@@ -23,10 +29,10 @@ public class ReservationsService {
 
         List<ReservationsEntity> reservationsEntities = reservationsRepository.findAll();
 
-        if(reservationsEntities.isEmpty())
+        if (reservationsEntities.isEmpty())
             return result;
 
-        for( ReservationsEntity dato:reservationsEntities){
+        for (ReservationsEntity dato : reservationsEntities) {
             ReservationDTO reservation = new ReservationDTO();
 
             reservation.setId(dato.getId());
@@ -61,4 +67,7 @@ public class ReservationsService {
 
         return result;
     }
+
+    //rf6
+
 }

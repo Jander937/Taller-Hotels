@@ -5,9 +5,15 @@ import com.co.buritica.hotels.models.entities.HotelsEntity;
 import com.co.buritica.hotels.models.entities.SuitesEntity;
 import com.co.buritica.hotels.models.entities.SuitesTypesEntity;
 import com.co.buritica.hotels.repositories.SuitesRepository;
+import com.co.buritica.hotels.repositories.SuitesTypesRepository;
+import jakarta.transaction.Transactional;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +22,12 @@ public class SuitesService {
     @Autowired
     private SuitesRepository suitesRepository;
 
+    @Autowired
+    private SuitesTypesRepository suitesTypesRepository;
+
+    public SuitesService(SuitesTypesRepository suitesTypesRepository) {
+        this.suitesTypesRepository = suitesTypesRepository;
+    }
     //rf4
     public Boolean add (SuitesDTO suitesData){
 
@@ -58,4 +70,46 @@ public class SuitesService {
 
         return true;
     }
+
+    //rf6
+
+
+//    public List<SuitesDTO> convertEntitiesToDTOs(List<SuitesEntity> suitesEntities) {
+//        List<SuitesDTO> suitesDTOs = new ArrayList<>();
+//        for (SuitesEntity entity : suitesEntities) {
+//            SuitesDTO dto = new SuitesDTO();
+//            // Copiar los datos de la entidad al DTO
+//            dto.setId(entity.getId());
+//            dto.setNumber(entity.getNumber());
+//            dto.setPrivateBathroom(entity.getPrivateBathroom());
+//            dto.setPhone(entity.getPhone());
+//            dto.setHeating(entity.getHeating());
+//            dto.setStatus(entity.getStatus());
+//            // Añadir el DTO a la lista
+//            suitesDTOs.add(dto);
+//        }
+//        return suitesDTOs;
+//    }
+//    @Transactional
+//    public List<SuitesDTO> moreReserved() {
+//        // Obtener la entidad SuitesTypesEntity
+//        SuitesTypesEntity suitesTypesEntity = suitesTypesRepository.findById(1).orElse(null);
+//
+//        // Manejar null
+//        if (suitesTypesEntity == null) {
+//            return Collections.emptyList();
+//        }
+//
+//        // Inicializar la colección suitesEntities
+//        Hibernate.initialize(suitesTypesEntity.getSuitesEntities());
+//
+//        // Acceder a la colección suitesEntities
+//        List<SuitesEntity> suitesEntities = suitesTypesEntity.getSuitesEntities();
+//
+//        // Convertir las entidades a DTOs
+//        List<SuitesDTO> suitesDTOs = convertEntitiesToDTOs(suitesEntities);
+//
+//        return suitesDTOs;
+//    }
+
 }

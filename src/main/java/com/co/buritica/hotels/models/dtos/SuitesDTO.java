@@ -1,15 +1,15 @@
 package com.co.buritica.hotels.models.dtos;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
+
 public class SuitesDTO {
 
+    private Integer id;
 
     private Integer number;
 
@@ -24,5 +24,6 @@ public class SuitesDTO {
     private Integer hotelId;
 
     private Integer suiteTypesId;
+
 
 }

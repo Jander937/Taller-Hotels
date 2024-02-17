@@ -1,6 +1,8 @@
 package com.co.buritica.hotels.controllers;
 
+import com.co.buritica.hotels.models.dtos.ReservationDTO;
 import com.co.buritica.hotels.models.dtos.SuitesDTO;
+import com.co.buritica.hotels.repositories.SuitesRepository;
 import com.co.buritica.hotels.services.SuitesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -15,6 +18,8 @@ public class SuitesController {
 
     @Autowired
     private SuitesService suitesService;
+    @Autowired
+    private SuitesRepository suitesRepository;
 
     // Inyecta SuitesService en el constructor
 //    public SuitesController(SuitesService suitesService) {

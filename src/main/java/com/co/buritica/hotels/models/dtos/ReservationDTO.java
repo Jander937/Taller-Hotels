@@ -8,6 +8,8 @@ import java.sql.Date;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class ReservationDTO {
 
