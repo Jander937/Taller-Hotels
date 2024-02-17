@@ -5,6 +5,8 @@ import com.co.buritica.hotels.models.dtos.SuitesDTO;
 import com.co.buritica.hotels.models.dtos.UsersDTO;
 import com.co.buritica.hotels.models.entities.*;
 import com.co.buritica.hotels.repositories.ReservationsRepository;
+import com.co.buritica.hotels.repositories.SuitesRepository;
+import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,13 @@ import java.util.List;
 @Service
 public class ReservationsService {
 
+    //rf2
+
     @Autowired
     private ReservationsRepository reservationsRepository;
+
+    @Autowired
+    private SuitesRepository suitesRepository;
 
     public List<ReservationDTO> getAll() {
 
@@ -23,10 +30,10 @@ public class ReservationsService {
 
         List<ReservationsEntity> reservationsEntities = reservationsRepository.findAll();
 
-        if(reservationsEntities.isEmpty())
+        if (reservationsEntities.isEmpty())
             return result;
 
-        for( ReservationsEntity dato:reservationsEntities){
+        for (ReservationsEntity dato : reservationsEntities) {
             ReservationDTO reservation = new ReservationDTO();
 
             reservation.setId(dato.getId());
@@ -60,5 +67,51 @@ public class ReservationsService {
         }
 
         return result;
+    }
+
+    //rf6
+
+    public List<ReservationDTO> getAllReservation(){
+        List<ReservationDTO> result = new ArrayList<>();
+        List<ReservationsEntity> reservationsEntities = reservationsRepository.findAll();
+
+        for (ReservationsEntity date: reservationsEntities){
+            ReservationDTO reservation = mapReservationsEntityToDTO(date);
+            result.add(reservation);
+        }
+        return result;
+    }
+
+    private ReservationDTO mapReservationsEntityToDTO(ReservationsEntity date) {
+        ReservationDTO reservartion = mapReservationsEntityToDTO(date);
+
+        reservartion.setId(date.getId());
+        reservartion.setStatus(date.getStatus());
+        reservartion.setCheckInDate(date.getCheckInDate());
+        reservartion.setCheckOutDate(date.getCheckOutDate());
+
+        SuitesDTO suitesDTO = new SuitesDTO();
+
+        suitesDTO.setHotelId(date.getSuitesEntity().getId());
+        suitesDTO.setStatus(date.getSuitesEntity().getStatus());
+        suitesDTO.setHeating(date.getSuitesEntity().getHeating());
+        suitesDTO.setPhone(date.getSuitesEntity().getPhone());
+        suitesDTO.setNumber(date.getSuitesEntity().getNumber());
+        suitesDTO.setPrivateBathroom(date.getSuitesEntity().getPrivateBathroom());
+        suitesDTO.setSuiteTypesId(date.getSuitesEntity().getSuiteTypesEntity().getId());
+
+        reservartion.setSuite(suitesDTO);
+
+        UsersDTO usersDTO = new UsersDTO();
+
+        usersDTO.setDocument(date.getUsersEntity().getDocument());
+        usersDTO.setNames(date.getUsersEntity().getNames());
+        usersDTO.setSurname(date.getUsersEntity().getSurname());
+        usersDTO.setPhone(date.getUsersEntity().getPhone());
+        usersDTO.setStatus(date.getUsersEntity().getStatus());
+
+        reservartion.setUser(usersDTO);
+
+        return reservartion;
     }
 }

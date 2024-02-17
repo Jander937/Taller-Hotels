@@ -10,6 +10,7 @@ import lombok.ToString;
 @ToString
 public class SuitesDTO {
 
+    private Integer id;
 
     private Integer number;
 
