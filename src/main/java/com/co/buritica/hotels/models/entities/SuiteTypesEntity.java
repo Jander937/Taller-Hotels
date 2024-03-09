@@ -1,20 +1,15 @@
 package com.co.buritica.hotels.models.entities;
 
-
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-
+import lombok.*;
 
 
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name = "tbl_tipos_usuarios")
-public class UserTypesEntity  {
+@Table(name = "tbl_tipos_habitaciones")
+public class SuiteTypesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +18,8 @@ public class UserTypesEntity  {
 
     @Column(name = "nombre")
     private String name;
+
+    @Column(name = "descripcion")
+    private String description;
 
 }

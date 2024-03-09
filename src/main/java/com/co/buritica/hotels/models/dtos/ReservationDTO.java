@@ -1,7 +1,5 @@
 package com.co.buritica.hotels.models.dtos;
 
-import com.co.buritica.hotels.models.entities.SuitesEntity;
-import com.co.buritica.hotels.models.entities.UsersEntity;
 import lombok.*;
 
 import java.sql.Date;
@@ -21,8 +19,8 @@ public class ReservationDTO {
 
     private String status;
 
-    private SuitesDTO suite;
+    private SuiteDTO suite;
 
-    private UsersDTO user;
+    private UserDTO user;
 
 }
